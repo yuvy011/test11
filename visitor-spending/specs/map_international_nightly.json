@@ -1,0 +1,154 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia-states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "params": [
+        {
+          "name": "stateHover",
+          "select": {
+            "type": "point",
+            "on": "pointerover",
+            "clear": "pointerout",
+            "fields": [
+              "properties.state"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white"
+      },
+      "encoding": {
+        "color": {
+          "field": "properties.nightly",
+          "type": "quantitative",
+          "title": "A$ per visitor night",
+          "scale": {
+            "domain": [
+              80,
+              150
+            ],
+            "range": [
+              "#e4f3f7",
+              "#08758d"
+            ]
+          },
+          "legend": {
+            "title": "A$ per visitor night"
+          }
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "stateHover",
+            "empty": false,
+            "value": 2
+          },
+          "value": 0.7
+        },
+        "stroke": {
+          "condition": {
+            "param": "stateHover",
+            "empty": false,
+            "value": "#162c27"
+          },
+          "value": "white"
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "properties.nightly",
+            "type": "quantitative",
+            "title": "A$ per night",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/international-states.json"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "dy": 0
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal",
+          "title": null
+        },
+        "color": {
+          "condition": {
+            "test": "datum.nightly > 125",
+            "value": "white"
+          },
+          "value": "#143e51"
+        }
+      }
+    }
+  ]
+}

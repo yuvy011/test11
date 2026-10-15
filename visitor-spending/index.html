@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Utkarsh Vaishnav"><meta name="description" content="A simple visual story of where tourists spend money in Australia, what they buy, and how spending changes."><title>Where the Travel Dollar Goes | Visitor Spending in Australia</title><link rel="stylesheet" href="style.css"><script defer src="vendor/vega.min.js"></script><script defer src="vendor/vega-lite.min.js"></script><script defer src="vendor/vega-embed.min.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to charts</a>
+<header class="hero">
+<div class="wrap">
+<p class="eyebrow">
+VISITOR SPENDING IN AUSTRALIA · FIT3179
+</p>
+<h1>
+Visitor Spending<br>in Australia
+</h1>
+<p class="subtitle">
+Where tourists spend. What they buy.<br>How their budgets are changing.
+</p>
+<p class="byline">
+  Author: Utkarsh Vaishnav · Student ID: 35022981 ·
+  <a href="https://github.com/yuvy011/FIT3179-A2-DATAVISUALISATION/tree/main"
+     target="_blank"
+     rel="noopener noreferrer">
+    Source code ↗
+  </a>
+</p>
+</div>
+</header>
+<nav class="section-nav" aria-label="Sections">
+<div class="wrap">
+<a href="#footprint">1 · Where money goes</a><a href="#baskets">2 · Budgets and destinations</a><a href="#purpose">3 · Tours and entertainment</a><a href="#change">4 · What has changed</a>
+</div>
+</nav>
+<main id="main" class="wrap">
+<div class="intro">
+<p class="lead">
+Tourism spending pays for accommodation, food, transport and experiences. Explore which costs take the largest share, how spending differs between visitors and destinations, and what changed from 2024 to 2026.
+</p>
+<div class="definitions">
+<p>
+<strong>Australian residents travelling within Australia</strong> are people who live here and take a trip within the country. Their figures below cover trips with at least one overnight stay.
+</p>
+<p>
+<strong>Visitors from overseas</strong> are people who live outside Australia and visit it. They may travel for a holiday, work, study, or to see friends and family.
+</p>
+</div>
+<p class="period">
+All amounts are Australian dollars. Years refer to the 12 months to March. <strong>Spending in Australia</strong> covers purchases here; a <strong>full trip budget</strong> also includes costs paid overseas, such as international airfares. Each figure states which it shows.
+</p>
+</div>
+<section id="footprint" class="chapter">
+<header class="section-header">
+<span class="section-number">01</span>
+<div>
+<h2>
+Where the money goes
+</h2>
+<p>
+Start with spending inside Australia. Compare destinations, then see what Australian residents buy on their trips.
+</p>
+</div>
+</header><div class="metrics">
+<div>
+<strong>$40.9bn</strong><span>Spent in Australia by visitors<br>from overseas · 2026</span>
+</div>
+<div>
+<strong>$107.6bn</strong><span>Spent by Australian residents<br>on overnight trips here · 2026</span>
+</div>
+<div>
+<strong>$127</strong><span>Average spending per night by<br>visitors from overseas · 2026</span>
+</div>
+</div>
+
+<div class="diagram-grid">
+<article class="diagram-card">
+<figure class="panel">
+<div id="map_international_nightly" class="chart" role="img" aria-label="Choropleth map: average spending per night by visitors from overseas, by state and territory, 2026.">
+</div>
+<figcaption>
+<strong>Figure 1.</strong> Choropleth map: average spending per night by visitors from overseas, by state and territory, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 3</a>. Map boundaries: <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer">ABS</a>.</span><a class="json-link" href="specs/map_international_nightly.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+The same length of stay can mean a different budget
+</h3>
+<p>
+Visitors from overseas spend about <strong>$149 per night in Tasmania</strong>, compared with <strong>$83 in Western Australia</strong>. This includes all their spending, not just accommodation.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Darker teal means more spending per visitor night. Hover over a state for its average. This lets you compare places with different numbers of visitors.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_domestic_categories" class="chart" role="img" aria-label="Bar chart: what Australian residents spent on overnight trips within Australia, 2026.">
+</div>
+<figcaption>
+<strong>Figure 2.</strong> Bar chart: what Australian residents spent on overnight trips within Australia, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/domestic-tourism-statistics-results/dots-march-2026" target="_blank" rel="noopener">Tourism Research Australia, Domestic Tourism Statistics, Table 4b</a>. </span><a class="json-link" href="specs/chart_domestic_categories.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Getting there, staying there and eating take most of the money
+</h3>
+<p>
+Residents spend <strong>$36.3bn on transport</strong>, <strong>$29.6bn on accommodation</strong> and <strong>$27.5bn on food and drink</strong>. These three groups account for about <strong>87%</strong> of their travel budget.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+A longer bar means more dollars spent. The categories are separate: entertainment does not include package or organised tours.
+</p>
+</div>
+</aside>
+</article>
+</div>
+</section>
+<section id="baskets" class="chapter">
+<header class="section-header">
+<span class="section-number">02</span>
+<div>
+<h2>
+Budgets and destinations
+</h2>
+<p>
+Compare travel budgets, then explore spending across Queensland destinations.
+</p>
+</div>
+</header>
+<div class="diagram-grid">
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_budget_treemap" class="chart" role="img" aria-label="Treemap: how visitors from overseas divided their full trip budget across spending categories, 2026.">
+</div>
+<figcaption>
+<strong>Figure 3.</strong> Treemap: how visitors from overseas divided their full trip budget across spending categories, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 8</a>. </span><a class="json-link" href="specs/chart_budget_treemap.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Food and places to stay take the biggest share
+</h3>
+<p>
+The combined food, drink and accommodation category accounts for <strong>$20.2bn</strong>, or about <strong>35%</strong> of the full trip budget. Transport, including airfares, accounts for <strong>$16.6bn</strong>.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Larger rectangles mean more spending. Hover for the amount and percentage. The survey combines food, drink and accommodation, so they stay together here.
+</p>
+</div>
+
+<h3>
+The full trip costs more than the spending recorded here
+</h3>
+<p>
+Visitors from overseas have a <strong>$57.6bn full trip budget</strong>. Of that, <strong>$40.9bn is spent in Australia</strong>. The difference includes overseas purchases and international travel costs.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Use this chart to understand the whole trip budget. Use the maps to compare spending within Australia; do not add the two totals together.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_market_heatmap" class="chart" role="img" aria-label="Heatmap: category shares of the full trip budget for visitors from five leading home countries, 2026.">
+</div>
+<figcaption>
+<strong>Figure 4.</strong> Heatmap: category shares of the full trip budget for visitors from five leading home countries, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 8</a>. </span><a class="json-link" href="specs/chart_market_heatmap.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Where a visitor lives is associated with a different spending mix
+</h3>
+<p>
+Education fees take about <strong>34%</strong> of the trip budget of visitors from China. Transport takes about <strong>44%</strong> for visitors from the UK and USA. These are group averages, not what every individual buys.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Read down a column to see one country’s budget. Darker cells mean a larger percentage. NZ means New Zealand.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_purpose_mix" class="chart" role="img" aria-label="100% stacked bars: full trip spending shares for visitors from overseas, grouped by their reason for visiting, 2026.">
+</div>
+<figcaption>
+<strong>Figure 5.</strong> 100% stacked bars: full trip spending shares for visitors from overseas, grouped by their reason for visiting, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 7</a>. </span><a class="json-link" href="specs/chart_purpose_mix.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Why people travel changes what they buy
+</h3>
+<p>
+People visiting mainly for education spend nearly <strong>48%</strong> of their full trip budget on education fees. Holiday travellers spend a larger share on tours and entertainment.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Each bar is a complete budget of 100%. Compare the coloured sections, not the bar lengths. “Friends & family” means visiting friends or relatives.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="map_domestic_regions" class="chart" role="img" aria-label="Proportional-symbol map: Australian residents’ overnight spending across Queensland tourism regions, 2026. Circle size shows total spend; colour shows spend per night.">
+</div>
+<figcaption>
+<strong>Figure 6.</strong> Proportional-symbol map: Australian residents’ overnight spending across Queensland tourism regions, 2026. Circle size shows total spend; colour shows spend per night. <span class="source">Source: <a href="https://teq.queensland.com/domestic-visitation.html" target="_blank" rel="noopener">Tourism and Events Queensland, Domestic Tourism Statistics</a>. Boundaries: <a href="https://www.tra.gov.au/en/profiles/tourism-regions-maps">Tourism Research Australia, 2026</a>.</span><a class="json-link" href="specs/map_domestic_regions.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+A bigger total does not mean a bigger nightly budget
+</h3>
+<p>
+Brisbane receives <strong>$8.85b</strong> from residents’ overnight trips. Tropical North Queensland receives <strong>$2.84b</strong>, but its spending per night is higher: about <strong>$403</strong>, compared with Brisbane’s <strong>$325</strong>.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+The map is a Queensland close-up. Larger circles mean more total spending; darker circles mean more per night. Hover to see the region name. The slider hides regions below the chosen spending total.
+</p>
+</div>
+</aside>
+</article>
+</div>
+</section>
+<section id="purpose" class="chapter">
+<header class="section-header">
+<span class="section-number">03</span>
+<div>
+<h2>
+Tours and entertainment
+</h2>
+<p>
+See how holiday travellers contribute to spending on experiences.
+</p>
+</div>
+</header>
+<div class="diagram-grid">
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_holiday_waffle" class="chart" role="img" aria-label="Waffle chart: holiday travellers’ share of tour and entertainment spending by visitors from overseas, 2026.">
+</div>
+<figcaption>
+<strong>Figure 7.</strong> Waffle chart: holiday travellers’ share of tour and entertainment spending by visitors from overseas, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 7</a>. </span><a class="json-link" href="specs/chart_holiday_waffle.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Holiday travel drives spending on experiences
+</h3>
+<p>
+Holiday travellers account for about <strong>75% of spending on tours and entertainment</strong> by visitors from overseas. That is roughly <strong>$3.88b of $5.17b</strong>.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Each square represents approximately 1% of spending. Teal squares show the holiday share; pale squares show all other reasons for travel. The exact share is 74.99%, rounded to 75 squares.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_purpose_bars" class="chart" role="img" aria-label="Grouped bars: tour and entertainment spending by visitors from overseas, grouped by reason for visiting, 2026.">
+</div>
+<figcaption>
+<strong>Figure 8.</strong> Grouped bars: tour and entertainment spending by visitors from overseas, grouped by reason for visiting, 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 7</a>. </span><a class="json-link" href="specs/chart_purpose_bars.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Tours and entertainment are different-sized markets
+</h3>
+<p>
+Holiday travellers spend <strong>$3.35b on tours</strong> and <strong>$0.52b on entertainment</strong>. The paired bars show the size of each category across the different reasons for visiting.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Within each group, compare the two bars. This is a dollar comparison; the waffle above shows the holiday group’s share of the combined total.
+</p>
+</div>
+</aside>
+</article>
+</div>
+</section>
+<section id="change" class="chapter">
+<header class="section-header">
+<span class="section-number">04</span>
+<div>
+<h2>
+What has changed
+</h2>
+<p>
+Compare spending growth with changes in budget shares and nightly averages.
+</p>
+</div>
+</header>
+<div class="diagram-grid">
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_category_index" class="chart" role="img" aria-label="Indexed line chart: change in each category of visitors’ full trip spending, 2024–2026. Each category starts at 100 in 2024.">
+</div>
+<figcaption>
+<strong>Figure 9.</strong> Indexed line chart: change in each category of visitors’ full trip spending, 2024–2026. Each category starts at 100 in 2024. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Tables 8 (2024–2026)</a>. </span><a class="json-link" href="specs/chart_category_index.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Entertainment grew faster, from a smaller starting point
+</h3>
+<p>
+Entertainment spending rose about <strong>82%</strong> between 2024 and 2026. Transport rose about <strong>5%</strong>. A small category can grow quickly while still accounting for relatively few dollars.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+All lines start at 100. A value of 150 means 50% more spending than in 2024. Click a legend item to focus on a category. These figures include price changes.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_budget_butterfly" class="chart" role="img" aria-label="Butterfly chart: category shares of visitors’ full trip spending in 2024 and 2026.">
+</div>
+<figcaption>
+<strong>Figure 10.</strong> Butterfly chart: category shares of visitors’ full trip spending in 2024 and 2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 8 (2024 and 2026)</a>. </span><a class="json-link" href="specs/chart_budget_butterfly.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Food and stays gained share; transport lost share
+</h3>
+<p>
+Food, drink and accommodation increased from <strong>33.0% to 35.1%</strong> of the full trip budget. Transport decreased from <strong>34.0% to 28.9%</strong>, even though more dollars were spent on it.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+The left side shows 2024 and the right side shows 2026. Compare how far each bar reaches from the centre. Values on both sides are positive percentages.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="map_spending_change" class="chart" role="img" aria-label="Tile cartogram: percentage growth in spending within Australia by visitors from overseas, 2025–2026.">
+</div>
+<figcaption>
+<strong>Figure 11.</strong> Tile cartogram: percentage growth in spending within Australia by visitors from overseas, 2025–2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 3</a>. </span><a class="json-link" href="specs/map_spending_change.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+Every state received more spending in total
+</h3>
+<p>
+Tasmania’s total grew about <strong>36%</strong> and Queensland’s about <strong>35%</strong>. NSW had the largest dollar increase, about <strong>$2.34b</strong>.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Each state has an equal-sized tile, so small territories remain visible. Darker teal means faster growth. Tile positions are a simplified arrangement, not exact geographic boundaries.
+</p>
+</div>
+</aside>
+</article>
+<article class="diagram-card">
+<figure class="panel">
+<div id="chart_nightly_lollipop" class="chart" role="img" aria-label="Lollipop chart: change in spending per visitor night for visitors from overseas, by state and territory, 2025–2026.">
+</div>
+<figcaption>
+<strong>Figure 12.</strong> Lollipop chart: change in spending per visitor night for visitors from overseas, by state and territory, 2025–2026. <span class="source">Source: <a href="https://www.tra.gov.au/en/tourism-statistics/international-tourism-results/international-tourism-results-march-2026" target="_blank" rel="noopener">Tourism Research Australia, International Visitor Survey, Table 3</a>. </span><a class="json-link" href="specs/chart_nightly_lollipop.json">Chart JSON</a>
+</figcaption>
+</figure>
+<aside class="story-text">
+<h3>
+More spending in total can still mean less per night
+</h3>
+<p>
+Spending per night fell in <strong>Western Australia and the ACT</strong>, because visitor nights grew faster than spending. The Northern Territory had the largest increase per night among the states shown.
+</p>
+<div class="callout">
+<span>HOW TO READ IT</span>
+<p>
+Dots to the right of zero mean an increase; dots to the left mean a decrease. Hover for the 2025 and 2026 averages. These are average visitor budgets, not hotel prices.
+</p>
+</div>
+</aside>
+</article>
+</div>
+<aside class="final-takeaway">
+<span>THE TAKEAWAY</span>
+<p>
+Accommodation, food and transport absorb most of the travel budget. The mix varies with where people go and why they travel. To understand change, compare <strong>dollars, budget shares and spending per night</strong>—each reveals something different.
+</p>
+</aside>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-grid">
+<div>
+<h2>
+Data sources
+</h2>
+<p>
+Tourism Research Australia’s visitor surveys provide the spending figures. Tourism and Events Queensland provides the regional breakdown. ABS and Tourism Research Australia provide the map boundaries.
+</p>
+<p>
+<a href="DATA_NOTES.md">Sources and calculation details</a> · <a href="CHART_MATRIX.md">Chart descriptions</a>
+</p>
+</div>
+<div>
+<h2>
+About this visualisation
+</h2>
+<p>
+Created by Utkarsh Vaishnav for FIT3179. 
+<h5><b>Generative AI declaration</b>
+Gemini was used to assist with formatting the website and the styling.
+</h5>
+</p>
+<p>
+<h6>Built with HTML5, CSS3, Pure.css, and Vega-Lite v5. Created for FIT3179 Data Visualisation 2, Monash University.
+</h6>
+</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

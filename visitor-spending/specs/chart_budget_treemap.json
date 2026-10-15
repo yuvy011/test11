@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 800,
+  "height": 440,
+  "padding": 3,
+  "background": "transparent",
+  "data": [
+    {
+      "name": "tree",
+      "url": "data/budget-tree.json",
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "value",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "method": "binary",
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "paddingInner": 3
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth === 1"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "colors",
+      "type": "ordinal",
+      "domain": [
+        "Food, drink & stay",
+        "Transport",
+        "Tours",
+        "Shopping",
+        "Entertainment",
+        "Education",
+        "Other"
+      ],
+      "range": [
+        "#07566a",
+        "#178da3",
+        "#57b9c9",
+        "#315f83",
+        "#78cbd4",
+        "#467e9b",
+        "#9fb7c5"
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "scale": "colors",
+            "field": "id"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "tooltip": {
+            "signal": "{'Category':datum.id,'Full trip spend (A$b)':format(datum.value,'.2f'),'Budget share':format(datum.share,'.1%')}"
+          }
+        },
+        "hover": {
+          "stroke": {
+            "value": "#002f44"
+          },
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2-14"
+          },
+          "text": {
+            "field": "label"
+          },
+          "lineBreak": {
+            "value": "\n"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "signal": "width < 450 ? 10 : 13"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "limit": {
+            "signal": "datum.x1-datum.x0-10"
+          },
+          "fill": {
+            "signal": "indexof(['Food, drink & stay','Transport','Shopping','Education'],datum.id)>=0 ? 'white' : '#123d49'"
+          },
+          "lineHeight": {
+            "value": 14
+          },
+          "opacity": {
+            "signal": "datum.x1-datum.x0 > 70 ? 1 : 0"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "(datum.x0+datum.x1)/2"
+          },
+          "y": {
+            "signal": "(datum.y0+datum.y1)/2+(datum.id==='Food, drink & stay' ? 24 : 13)"
+          },
+          "text": {
+            "signal": "'$'+format(datum.value,'.1f')+'b'"
+          },
+          "align": {
+            "value": "center"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fill": {
+            "signal": "indexof(['Food, drink & stay','Transport','Shopping','Education'],datum.id)>=0 ? 'white' : '#123d49'"
+          },
+          "opacity": {
+            "signal": "datum.y1-datum.y0 > 40 ? 1 : 0"
+          }
+        }
+      }
+    }
+  ],
+  "legends": [
+    {
+      "fill": "colors",
+      "orient": "bottom",
+      "columns": 2,
+      "symbolType": "square",
+      "labelFont": "Arial",
+      "labelFontSize": 11,
+      "labelLimit": 160,
+      "columnPadding": 15,
+      "rowPadding": 5,
+      "title": null
+    }
+  ]
+}

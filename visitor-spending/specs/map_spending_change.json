@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 330,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/international-states.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "tile_x",
+      "type": "ordinal",
+      "title": null,
+      "axis": null
+    },
+    "y": {
+      "field": "tile_y",
+      "type": "ordinal",
+      "title": null,
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 5,
+        "cornerRadius": 5
+      },
+      "encoding": {
+        "color": {
+          "field": "growth_pct",
+          "type": "quantitative",
+          "title": "Change (%)",
+          "scale": {
+            "domain": [
+              0,
+              40
+            ],
+            "range": [
+              "#e4f3f7",
+              "#08758d"
+            ]
+          },
+          "legend": {
+            "title": "Change in state spend (%)"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "growth_pct",
+            "type": "quantitative",
+            "title": "2025–2026 growth (%)",
+            "format": "+.1f"
+          },
+          {
+            "field": "change_m",
+            "type": "quantitative",
+            "title": "Increase (A$m)",
+            "format": ",.0f"
+          },
+          {
+            "field": "spend_b",
+            "type": "quantitative",
+            "title": "2026 (A$b)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "lineBreak": "\n",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal",
+          "title": null
+        },
+        "color": {
+          "condition": {
+            "test": "datum.growth_pct > 25",
+            "value": "white"
+          },
+          "value": "#143e51"
+        }
+      }
+    }
+  ]
+}

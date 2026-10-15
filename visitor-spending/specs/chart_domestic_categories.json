@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 330,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/domestic-categories.json"
+  },
+  "mark": {
+    "type": "bar",
+    "color": "#087c94",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "x": {
+      "field": "spend_b",
+      "type": "quantitative",
+      "title": "Residents’ travel spend (A$b)",
+      "scale": {
+        "zero": true
+      }
+    },
+    "tooltip": [
+      {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "field": "spend_b",
+        "type": "quantitative",
+        "title": "A$ billion",
+        "format": ".2f"
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Share of overnight budget",
+        "format": ".1%"
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 350,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/market-categories.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "market",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "China",
+        "UK",
+        "USA",
+        "New Zealand",
+        "India"
+      ],
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "datum.label === 'New Zealand' ? 'NZ' : datum.label"
+      }
+    },
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Food, drink & stay",
+        "Transport",
+        "Tours",
+        "Shopping",
+        "Entertainment",
+        "Education",
+        "Other"
+      ]
+    },
+    "tooltip": [
+      {
+        "field": "market",
+        "type": "nominal",
+        "title": "Home country"
+      },
+      {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Budget share",
+        "format": ".1%"
+      },
+      {
+        "field": "spend_b",
+        "type": "quantitative",
+        "title": "A$ billion",
+        "format": ".2f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "share",
+          "type": "quantitative",
+          "title": "Share of country budget",
+          "scale": {
+            "domain": [
+              0,
+              0.5
+            ],
+            "range": [
+              "#e4f3f7",
+              "#08758d"
+            ]
+          },
+          "legend": {
+            "title": "Budget share",
+            "format": ".0%"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "share",
+          "type": "quantitative",
+          "title": null,
+          "format": ".0%"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.share > 0.25",
+            "value": "white"
+          },
+          "value": "#143e51"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 350,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/purpose-categories.json"
+  },
+  "params": [],
+  "transform": [
+    {
+      "filter": "datum.category === 'Entertainment' || datum.category === 'Tours'"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "purpose",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Holiday",
+        "Friends & family",
+        "Business",
+        "Education",
+        "Other"
+      ]
+    },
+    "x": {
+      "field": "spend_b",
+      "type": "quantitative",
+      "title": "Total trip spend (A$b)",
+      "scale": {
+        "zero": true
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Tours",
+          "Entertainment"
+        ],
+        "range": [
+          "#315f83",
+          "#57b9c9"
+        ]
+      },
+      "legend": {
+        "title": "Leisure category"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "purpose",
+        "type": "nominal",
+        "title": "Purpose"
+      },
+      {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "field": "spend_b",
+        "type": "quantitative",
+        "title": "A$ billion",
+        "format": ".3f"
+      }
+    ],
+    "yOffset": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Tours",
+        "Entertainment"
+      ]
+    }
+  }
+}

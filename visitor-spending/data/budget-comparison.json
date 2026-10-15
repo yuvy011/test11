@@ -1,0 +1,100 @@
+[
+  {
+    "category": "Food, drink & stay",
+    "year": 2024,
+    "share": 0.3298058785504729,
+    "signed_share": -0.3298058785504729,
+    "spend_b": 15.43289360087279
+  },
+  {
+    "category": "Transport",
+    "year": 2024,
+    "share": 0.340106333530343,
+    "signed_share": -0.340106333530343,
+    "spend_b": 15.914891758223973
+  },
+  {
+    "category": "Tours",
+    "year": 2024,
+    "share": 0.06483345684159413,
+    "signed_share": -0.06483345684159413,
+    "spend_b": 3.0338083893794976
+  },
+  {
+    "category": "Shopping",
+    "year": 2024,
+    "share": 0.07735142996046752,
+    "signed_share": -0.07735142996046752,
+    "spend_b": 3.619572803559258
+  },
+  {
+    "category": "Entertainment",
+    "year": 2024,
+    "share": 0.012759915345309234,
+    "signed_share": -0.012759915345309234,
+    "spend_b": 0.5970858274139731
+  },
+  {
+    "category": "Education",
+    "year": 2024,
+    "share": 0.13400993093274396,
+    "signed_share": -0.13400993093274396,
+    "spend_b": 6.270843365906959
+  },
+  {
+    "category": "Other",
+    "year": 2024,
+    "share": 0.04113305483907962,
+    "signed_share": -0.04113305483907962,
+    "spend_b": 1.9247748451313083
+  },
+  {
+    "category": "Food, drink & stay",
+    "year": 2026,
+    "share": 0.35149128908190375,
+    "signed_share": 0.35149128908190375,
+    "spend_b": 20.236935549391447
+  },
+  {
+    "category": "Transport",
+    "year": 2026,
+    "share": 0.2891880312240372,
+    "signed_share": 0.2891880312240372,
+    "spend_b": 16.649856572043117
+  },
+  {
+    "category": "Tours",
+    "year": 2026,
+    "share": 0.070849247556304,
+    "signed_share": 0.070849247556304,
+    "spend_b": 4.079110069170759
+  },
+  {
+    "category": "Shopping",
+    "year": 2026,
+    "share": 0.08103102229416047,
+    "signed_share": 0.08103102229416047,
+    "spend_b": 4.665320668263047
+  },
+  {
+    "category": "Entertainment",
+    "year": 2026,
+    "share": 0.01891522719250494,
+    "signed_share": 0.01891522719250494,
+    "spend_b": 1.0890347655461328
+  },
+  {
+    "category": "Education",
+    "year": 2026,
+    "share": 0.14813499605201172,
+    "signed_share": 0.14813499605201172,
+    "spend_b": 8.528798467649585
+  },
+  {
+    "category": "Other",
+    "year": 2026,
+    "share": 0.04039018659907799,
+    "signed_share": 0.04039018659907799,
+    "spend_b": 2.3254448358262807
+  }
+]

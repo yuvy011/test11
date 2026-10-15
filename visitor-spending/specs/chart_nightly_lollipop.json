@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 340,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/nightly-change.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "x": {
+      "field": "change",
+      "type": "quantitative",
+      "title": "Change in A$ per visitor night",
+      "scale": {
+        "domain": [
+          -10,
+          25
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "change",
+        "type": "quantitative",
+        "title": "Change (A$ per night)",
+        "format": "+.1f"
+      },
+      {
+        "field": "previous",
+        "type": "quantitative",
+        "title": "2025 A$ per night",
+        "format": ".1f"
+      },
+      {
+        "field": "current",
+        "type": "quantitative",
+        "title": "2026 A$ per night",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#8bb5c1"
+      },
+      "encoding": {
+        "x2": {
+          "datum": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 110,
+        "color": "#087c94"
+      }
+    }
+  ]
+}

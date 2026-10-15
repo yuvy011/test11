@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 340,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/budget-comparison.json"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 22
+      },
+      "encoding": {
+        "y": {
+          "field": "category",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Food, drink & stay",
+            "Transport",
+            "Tours",
+            "Shopping",
+            "Entertainment",
+            "Education",
+            "Other"
+          ]
+        },
+        "x": {
+          "field": "signed_share",
+          "type": "quantitative",
+          "title": "← 2024     Budget share     2026 →",
+          "scale": {
+            "domain": [
+              -0.4,
+              0.4
+            ]
+          },
+          "axis": {
+            "values": [
+              -0.4,
+              -0.2,
+              0,
+              0.2,
+              0.4
+            ],
+            "labelExpr": "format(abs(datum.value),'.0%')"
+          }
+        },
+        "color": {
+          "field": "year",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              2024,
+              2026
+            ],
+            "range": [
+              "#93c4d0",
+              "#087c94"
+            ]
+          },
+          "legend": {
+            "title": "Annual period to March"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "category",
+            "type": "nominal",
+            "title": "Category"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of full trip budget",
+            "format": ".1%"
+          },
+          {
+            "field": "spend_b",
+            "type": "quantitative",
+            "title": "A$ billion",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#476876"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 440,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "params": [
+    {
+      "name": "minSpend",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 5,
+        "step": 0.5,
+        "name": "Minimum region spend (A$b): "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/queensland-tourism-regions.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e4eff0",
+        "stroke": "#b1c7cc",
+        "strokeWidth": 0.7
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.region",
+            "type": "nominal",
+            "title": "Tourism region"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/domestic-regions.json"
+      },
+      "transform": [
+        {
+          "filter": "datum.spend_b >= minSpend"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#28536a",
+        "strokeWidth": 0.8,
+        "opacity": 0.85
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative",
+          "title": null
+        },
+        "size": {
+          "field": "spend_b",
+          "type": "quantitative",
+          "title": "Total A$b",
+          "scale": {
+            "domain": [
+              0,
+              9
+            ],
+            "range": [
+              0,
+              1500
+            ]
+          },
+          "legend": {
+            "title": "Total A$b",
+            "values": [
+              1,
+              4,
+              8
+            ]
+          }
+        },
+        "color": {
+          "field": "nightly",
+          "type": "quantitative",
+          "title": "A$ per night",
+          "scale": {
+            "domain": [
+              150,
+              420
+            ],
+            "range": [
+              "#e4f3f7",
+              "#08758d"
+            ]
+          },
+          "legend": {
+            "title": "A$ per night"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "type": "nominal",
+            "title": "Tourism region"
+          },
+          {
+            "field": "spend_b",
+            "type": "quantitative",
+            "title": "A$ billion",
+            "format": ".2f"
+          },
+          {
+            "field": "nightly",
+            "type": "quantitative",
+            "title": "A$ per night",
+            "format": ".0f"
+          },
+          {
+            "field": "nights_k",
+            "type": "quantitative",
+            "title": "Nights (thousands)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ]
+}

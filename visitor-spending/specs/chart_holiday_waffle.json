@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 300,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/leisure-waffle.json"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 3,
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "title": null,
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "title": null,
+      "axis": null
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Holiday travellers",
+          "Other travel reasons"
+        ],
+        "range": [
+          "#087c94",
+          "#d8e8ee"
+        ]
+      },
+      "legend": {
+        "columns": 1
+      }
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "type": "nominal",
+        "title": "Spending group"
+      },
+      {
+        "field": "holiday_share",
+        "type": "quantitative",
+        "title": "Exact holiday share",
+        "format": ".2%"
+      },
+      {
+        "field": "holiday_b",
+        "type": "quantitative",
+        "title": "Holiday tour + entertainment spend (A$b)",
+        "format": ".2f"
+      },
+      {
+        "field": "total_b",
+        "type": "quantitative",
+        "title": "All-purpose tour + entertainment spend (A$b)",
+        "format": ".2f"
+      }
+    ]
+  }
+}

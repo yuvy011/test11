@@ -1,0 +1,118 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 320,
+  "config": {
+    "background": "transparent",
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "gridColor": "#e3edf2",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelLimit": 150,
+      "tickCount": 5
+    },
+    "legend": {
+      "orient": "bottom",
+      "title": null,
+      "columns": 2,
+      "labelFontSize": 11
+    }
+  },
+  "data": {
+    "url": "data/purpose-categories.json"
+  },
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "y": {
+      "field": "purpose",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Holiday",
+        "Friends & family",
+        "Business",
+        "Education",
+        "Other"
+      ]
+    },
+    "x": {
+      "field": "spend_m",
+      "type": "quantitative",
+      "title": "Share of each group’s trip budget",
+      "stack": "normalize",
+      "axis": {
+        "format": "%"
+      },
+      "scale": {
+        "domain": [
+          0,
+          1
+        ]
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Food, drink & stay",
+          "Transport",
+          "Tours",
+          "Shopping",
+          "Entertainment",
+          "Education",
+          "Other"
+        ],
+        "range": [
+          "#07566a",
+          "#178da3",
+          "#57b9c9",
+          "#315f83",
+          "#78cbd4",
+          "#467e9b",
+          "#9fb7c5"
+        ]
+      },
+      "legend": {
+        "columns": 2
+      }
+    },
+    "order": {
+      "field": "category_order",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {
+        "field": "purpose",
+        "type": "nominal",
+        "title": "Purpose"
+      },
+      {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "field": "share",
+        "type": "quantitative",
+        "title": "Share of group budget",
+        "format": ".1%"
+      },
+      {
+        "field": "spend_b",
+        "type": "quantitative",
+        "title": "A$ billion",
+        "format": ".2f"
+      }
+    ]
+  }
+}
